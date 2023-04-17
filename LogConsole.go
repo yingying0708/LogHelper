@@ -1,4 +1,4 @@
-package github.com/yingying0708/loghelper
+package loghelper
 
 import (
 	"os"
