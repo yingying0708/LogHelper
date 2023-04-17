@@ -1,4 +1,4 @@
-package loghelper
+package github.com/yingying0708/loghelper
 
 import (
 	"encoding/json"
