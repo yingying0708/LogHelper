@@ -6,9 +6,6 @@ import (
 	"sync"
 	"time"
 
-	consolehelper "github.com/yingying0708/loghelper/ConsoleLogPrint"
-	filehelper "github.com/yingying0708/loghelper/FileLogPrint"
-
 	rotatelogs "github.com/lestrrat-go/file-rotatelogs"
 	"github.com/sirupsen/logrus"
 )
@@ -256,89 +253,89 @@ func getWriter(logPath, When string, backupCount int) *rotatelogs.RotateLogs {
 func (log *LogHelper) info(msg interface{}) {
 	if GetLogLevel(log.LogLevel) <= Log_Info {
 		if log.ConsolePrint {
-			consolehelper.PrintLogConsole(log.AppName, "INFO", msg, logs)
+			PrintLogConsole(log.AppName, "INFO", msg, logs)
 		}
-		filehelper.PrintLogFile(log.InfoWriter, log.AppName, "INFO", msg, logs)
+		PrintLogFile(log.InfoWriter, log.AppName, "INFO", msg, logs)
 	}
 }
 
 func (log *LogHelper) trace(msg interface{}) {
 	if GetLogLevel(log.LogLevel) <= Log_Trace {
 		if log.ConsolePrint {
-			consolehelper.PrintLogConsole(log.AppName, "TRACE", msg, logs)
+			PrintLogConsole(log.AppName, "TRACE", msg, logs)
 		}
-		filehelper.PrintLogFile(log.TraceWriter, log.AppName, "TRACE", msg, logs)
+		PrintLogFile(log.TraceWriter, log.AppName, "TRACE", msg, logs)
 	}
 }
 
 func (log *LogHelper) debug(msg interface{}) {
 	if GetLogLevel(log.LogLevel) <= Log_Debug {
 		if log.ConsolePrint {
-			consolehelper.PrintLogConsole(log.AppName, "DEBUG", msg, logs)
+			PrintLogConsole(log.AppName, "DEBUG", msg, logs)
 		}
-		filehelper.PrintLogFile(log.DebugWriter, log.AppName, "DEBUG", msg, logs)
+		PrintLogFile(log.DebugWriter, log.AppName, "DEBUG", msg, logs)
 	}
 }
 
 func (log *LogHelper) warn(msg interface{}) {
 	if GetLogLevel(log.LogLevel) <= Log_Warn {
 		if log.ConsolePrint {
-			consolehelper.PrintLogConsole(log.AppName, "WARN", msg, logs)
+			PrintLogConsole(log.AppName, "WARN", msg, logs)
 		}
-		filehelper.PrintLogFile(log.WarnWriter, log.AppName, "WARN", msg, logs)
+		PrintLogFile(log.WarnWriter, log.AppName, "WARN", msg, logs)
 	}
 }
 
 func (log *LogHelper) error(msg interface{}) {
 	if GetLogLevel(log.LogLevel) <= Log_Error {
 		if log.ConsolePrint {
-			consolehelper.PrintLogConsole(log.AppName, "ERROR", msg, logs)
+			PrintLogConsole(log.AppName, "ERROR", msg, logs)
 		}
-		filehelper.PrintLogFile(log.ErrorWriter, log.AppName, "ERROR", msg, logs)
+		PrintLogFile(log.ErrorWriter, log.AppName, "ERROR", msg, logs)
 	}
 }
 
 func (log *LogHelper) infoCustom(msg interface{}, fields map[string]interface{}) {
 	if GetLogLevel(log.LogLevel) <= Log_Info {
 		if log.ConsolePrint {
-			consolehelper.PrintLogConsoleCustom(log.AppName, "INFO", msg, fields, logs)
+			PrintLogConsoleCustom(log.AppName, "INFO", msg, fields, logs)
 		}
-		filehelper.PrintLogFileCustom(log.InfoWriter, log.AppName, "INFO", msg, fields, logs)
+		PrintLogFileCustom(log.InfoWriter, log.AppName, "INFO", msg, fields, logs)
 	}
 }
 
 func (log *LogHelper) traceCustom(msg interface{}, fields map[string]interface{}) {
 	if GetLogLevel(log.LogLevel) <= Log_Trace {
 		if log.ConsolePrint {
-			consolehelper.PrintLogConsoleCustom(log.AppName, "TRACE", msg, fields, logs)
+			PrintLogConsoleCustom(log.AppName, "TRACE", msg, fields, logs)
 		}
-		filehelper.PrintLogFileCustom(log.TraceWriter, log.AppName, "TRACE", msg, fields, logs)
+		PrintLogFileCustom(log.TraceWriter, log.AppName, "TRACE", msg, fields, logs)
 	}
 }
 
 func (log *LogHelper) debugCustom(msg interface{}, fields map[string]interface{}) {
 	if GetLogLevel(log.LogLevel) <= Log_Debug {
 		if log.ConsolePrint {
-			consolehelper.PrintLogConsoleCustom(log.AppName, "DEBUG", msg, fields, logs)
+			PrintLogConsoleCustom(log.AppName, "DEBUG", msg, fields, logs)
 		}
-		filehelper.PrintLogFileCustom(log.DebugWriter, log.AppName, "DEBUG", msg, fields, logs)
+		PrintLogFileCustom(log.DebugWriter, log.AppName, "DEBUG", msg, fields, logs)
 	}
 }
 
 func (log *LogHelper) warnCustom(msg interface{}, fields map[string]interface{}) {
 	if GetLogLevel(log.LogLevel) <= Log_Warn {
 		if log.ConsolePrint {
-			consolehelper.PrintLogConsoleCustom(log.AppName, "WARN", msg, fields, logs)
+			PrintLogConsoleCustom(log.AppName, "WARN", msg, fields, logs)
 		}
-		filehelper.PrintLogFileCustom(log.WarnWriter, log.AppName, "WARN", msg, fields, logs)
+		PrintLogFileCustom(log.WarnWriter, log.AppName, "WARN", msg, fields, logs)
 	}
 }
 
 func (log *LogHelper) errorCustom(msg interface{}, fields map[string]interface{}) {
 	if GetLogLevel(log.LogLevel) <= Log_Error {
 		if log.ConsolePrint {
-			consolehelper.PrintLogConsoleCustom(log.AppName, "ERROR", msg, fields, logs)
+			PrintLogConsoleCustom(log.AppName, "ERROR", msg, fields, logs)
 		}
-		filehelper.PrintLogFileCustom(log.ErrorWriter, log.AppName, "ERROR", msg, fields, logs)
+		PrintLogFileCustom(log.ErrorWriter, log.AppName, "ERROR", msg, fields, logs)
 	}
 }
